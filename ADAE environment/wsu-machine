@@ -1,0 +1,287 @@
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+SSH_CONNECTION=69.166.48.102 38098 10.99.0.106 22
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LANG=en_US.UTF-8
+XDG_SESSION_ID=138
+MODULES_CMD=/usr/lib/x86_64-linux-gnu/modulecmd.tcl
+USER=USER
+ENV=/usr/share/modules/init/profile.sh
+PWD=/home/USER
+HOME=/home/USER
+SSH_CLIENT=69.166.48.102 38098 22
+BASH_ENV=/usr/share/modules/init/bash
+XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
+LOADEDMODULES=
+SSH_TTY=/dev/pts/0
+MAIL=/var/mail/USER
+TERM=xterm-256color
+SHELL=/bin/bash
+SHLVL=1
+python:/usr/bin/python3
+MODULEPATH=/etc/environment-modules/modules:/usr/share/modules/versions:/usr/share/modules/$MODULE_VERSION/modulefiles:/usr/share/modules/modulefiles
+LOGNAME=USER
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus
+XDG_RUNTIME_DIR=/run/user/1001
+MODULEPATH_modshare=/usr/share/modules/$MODULE_VERSION/modulefiles:1:/etc/environment-modules/modules:1:/usr/share/modules/modulefiles:1:/usr/share/modules/versions:1
+PATH=/home/USER/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+MODULESHOME=/usr/share/modules
+LESSOPEN=| /usr/bin/lesspipe %s
+BASH_FUNC_module%%=() {  _moduleraw "$*" 2>&1
+}
+BASH_FUNC_switchml%%=() {  typeset swfound=1;
+ if [ "${MODULES_USE_COMPAT_VERSION:-0}" = '1' ]; then
+ typeset swname='main';
+ if [ -e /usr/lib/x86_64-linux-gnu/modulecmd.tcl ]; then
+ typeset swfound=0;
+ unset MODULES_USE_COMPAT_VERSION;
+ fi;
+ else
+ typeset swname='compatibility';
+ if [ -e /usr/lib/x86_64-linux-gnu/modulecmd-compat ]; then
+ typeset swfound=0;
+ MODULES_USE_COMPAT_VERSION=1;
+ export MODULES_USE_COMPAT_VERSION;
+ fi;
+ fi;
+ if [ $swfound -eq 0 ]; then
+ echo "Switching to Modules $swname version";
+ source /usr/share/modules/init/bash;
+ else
+ echo "Cannot switch to Modules $swname version, command not found";
+ return 1;
+ fi
+}
+BASH_FUNC__moduleraw%%=() {  unset _mlre _mlIFS _mlshdbg;
+ if [ "${MODULES_SILENT_SHELL_DEBUG:-0}" = '1' ]; then
+ case "$-" in 
+ *v*x*)
+ set +vx;
+ _mlshdbg='vx'
+ ;;
+ *v*)
+ set +v;
+ _mlshdbg='v'
+ ;;
+ *x*)
+ set +x;
+ _mlshdbg='x'
+ ;;
+ *)
+ _mlshdbg=''
+ ;;
+ esac;
+ fi;
+ if [ -n "${IFS+x}" ]; then
+ _mlIFS=$IFS;
+ fi;
+ IFS=' ';
+ for _mlv in ${MODULES_RUN_QUARANTINE:-};
+ do
+ if [ "${_mlv}" = "${_mlv##*[!A-Za-z0-9_]}" -a "${_mlv}" = "${_mlv#[0-9]}" ]; then
+ if [ -n "`eval 'echo ${'$_mlv'+x}'`" ]; then
+ _mlre="${_mlre:-}${_mlv}_modquar='`eval 'echo ${'$_mlv'}'`' ";
+ fi;
+ _mlrv="MODULES_RUNENV_${_mlv}";
+ _mlre="${_mlre:-}${_mlv}='`eval 'echo ${'$_mlrv':-}'`' ";
+ fi;
+ done;
+ if [ -n "${_mlre:-}" ]; then
+ _mlre="eval ${_mlre}";
+ fi;
+ eval `${_mlre:-}/usr/bin/tclsh /usr/lib/x86_64-linux-gnu/modulecmd.tcl bash $*`;
+ _mlstatus=$?;
+ if [ -n "${_mlIFS+x}" ]; then
+ IFS=$_mlIFS;
+ else
+ unset IFS;
+ fi;
+ if [ -n "${_mlshdbg:-}" ]; then
+ set -$_mlshdbg;
+ fi;
+ unset _mlre _mlv _mlrv _mlIFS _mlshdbg;
+ return $_mlstatus
+}
+_=/usr/bin/env
+++ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 18.04.4 LTS
+Release:	18.04
+Codename:	bionic
+++ uname -a
+Linux bluegeneasr 5.3.0-46-generic #38~18.04.1-Ubuntu SMP Tue Mar 31 04:17:56 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+++ lscpu
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              8
+On-line CPU(s) list: 0-7
+Thread(s) per core:  1
+Core(s) per socket:  8
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               158
+Model name:          Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz
+Stepping:            13
+CPU MHz:             3600.425
+CPU max MHz:         3601.0000
+CPU min MHz:         800.0000
+BogoMIPS:            7200.00
+Virtualization:      VT-x
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            256K
+L3 cache:            12288K
+NUMA node0 CPU(s):   0-7
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp md_clear flush_l1d arch_capabilities
+++ cat /proc/meminfo
+MemTotal:       16332564 kB
+MemFree:        14674840 kB
+MemAvailable:   15682692 kB
+Buffers:          374728 kB
+Cached:           768304 kB
+SwapCached:        22820 kB
+Active:           723952 kB
+Inactive:         498932 kB
+Active(anon):      68192 kB
+Inactive(anon):    12020 kB
+Active(file):     655760 kB
+Inactive(file):   486912 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:      13611000 kB
+SwapFree:       13375480 kB
+Dirty:                52 kB
+Writeback:             0 kB
+AnonPages:         78000 kB
+Mapped:           127072 kB
+Shmem:               352 kB
+KReclaimable:     202680 kB
+Slab:             264352 kB
+SReclaimable:     202680 kB
+SUnreclaim:        61672 kB
+KernelStack:        6624 kB
+PageTables:        19020 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    21777280 kB
+Committed_AS:    2078892 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       48716 kB
+VmallocChunk:          0 kB
+Percpu:             2880 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      302316 kB
+DirectMap2M:    11167744 kB
+DirectMap1G:     5242880 kB
+++ inxi -F -c0
+++ '[' -x /usr/lib/command-not-found ']'
+++ /usr/lib/command-not-found -- inxi
+
+Command 'inxi' not found, but can be installed with:
+
+apt install inxi
+Please ask your administrator.
+
+++ return 127
+++ lsblk -a
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+loop0         7:0    0  14.8M  1 loop /snap/gnome-characters/495
+loop1         7:1    0   3.7M  1 loop /snap/gnome-system-monitor/135
+loop2         7:2    0 156.7M  1 loop /snap/gnome-3-28-1804/110
+loop3         7:3    0  14.8M  1 loop /snap/gnome-characters/399
+loop4         7:4    0  54.8M  1 loop /snap/gtk-common-themes/1502
+loop5         7:5    0   956K  1 loop /snap/gnome-logs/81
+loop6         7:6    0  54.7M  1 loop /snap/core18/1668
+loop7         7:7    0   3.7M  1 loop /snap/gnome-system-monitor/127
+loop8         7:8    0   956K  1 loop /snap/gnome-logs/93
+loop9         7:9    0   4.3M  1 loop /snap/gnome-calculator/704
+loop10        7:10   0 160.2M  1 loop /snap/gnome-3-28-1804/116
+loop11        7:11   0         1 loop 
+loop12        7:12   0    55M  1 loop /snap/core18/1705
+loop13        7:13   0  17.9M  1 loop /snap/pdftk/9
+loop14        7:14   0   4.2M  1 loop /snap/gnome-calculator/544
+loop15        7:15   0  93.8M  1 loop /snap/core/8935
+loop16        7:16   0  91.4M  1 loop /snap/core/8689
+loop17        7:17   0  62.1M  1 loop /snap/gtk-common-themes/1506
+sda           8:0    0   3.7T  0 disk 
+├─sda1        8:1    0  31.3G  0 part 
+├─sda2        8:2    0   1.9T  0 part /mnt/sda2
+└─sda3        8:3    0   1.7T  0 part /mnt/sda3
+nvme0n1     259:0    0 465.8G  0 disk 
+├─nvme0n1p1 259:1    0 232.9G  0 part /
+├─nvme0n1p2 259:2    0     3G  0 part [SWAP]
+├─nvme0n1p3 259:3    0   477M  0 part /boot/efi
+└─nvme0n1p4 259:4    0 229.5G  0 part /home
+++ lsscsi -s
+++ '[' -x /usr/lib/command-not-found ']'
+++ /usr/lib/command-not-found -- lsscsi
+
+Command 'lsscsi' not found, but can be installed with:
+
+apt install lsscsi
+Please ask your administrator.
+
+++ return 127
+++ module list
+++ _moduleraw list
+++ unset _mlre _mlIFS _mlshdbg
+++ '[' 0 = 1 ']'
+++ '[' -n x ']'
+++ _mlIFS=' 	
+'
+++ IFS=' '
+++ '[' -n '' ']'
++++ /usr/bin/tclsh /usr/lib/x86_64-linux-gnu/modulecmd.tcl bash list
+No Modulefiles Currently Loaded.
+++ eval
+++ _mlstatus=0
+++ '[' -n x ']'
+++ IFS=' 	
+'
+++ '[' -n '' ']'
+++ unset _mlre _mlv _mlrv _mlIFS _mlshdbg
+++ return 0
+++ cat
+++ lshw -short -quiet -sanitize
+WARNING: you should run this program as super-user.
+H/W path       Device     Class          Description
+====================================================
+                          system         Computer
+/0                        bus            Motherboard
+/0/0                      memory         15GiB System memory
+/0/1                      processor      Intel(R) Core(TM) i7-9700K CPU @ 3.60GHz
+/0/100                    bridge         Intel Corporation
+/0/100/1                  bridge         Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor PCIe Controller (x16)
+/0/100/1/0                display        NVIDIA Corporation
+/0/100/1/0.1              multimedia     NVIDIA Corporation
+/0/100/1/0.2              bus            NVIDIA Corporation
+/0/100/1/0.3              bus            NVIDIA Corporation
+/0/100/14                 bus            200 Series/Z370 Chipset Family USB 3.0 xHCI Controller
+/0/100/16                 communication  200 Series PCH CSME HECI #1
+/0/100/17                 storage        200 Series PCH SATA controller [AHCI mode]
+/0/100/1b                 bridge         200 Series PCH PCI Express Root Port #17
+/0/100/1c                 bridge         200 Series PCH PCI Express Root Port #1
+/0/100/1c.2               bridge         200 Series PCH PCI Express Root Port #3
+/0/100/1c.2/0             bus            ASM1142 USB 3.1 Host Controller
+/0/100/1d                 bridge         200 Series PCH PCI Express Root Port #9
+/0/100/1d/0               storage        NVMe SSD Controller SM981/PM981
+/0/100/1f                 bridge         Z370 Chipset LPC/eSPI Controller
+/0/100/1f.2               memory         Memory controller
+/0/100/1f.3               multimedia     200 Series PCH HD Audio
+/0/100/1f.4               bus            200 Series/Z370 Chipset Family SMBus Controller
+/0/100/1f.6    enp0s31f6  network        Ethernet Connection (2) I219-V
