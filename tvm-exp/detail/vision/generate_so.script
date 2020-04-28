@@ -1,0 +1,6 @@
+clang-8 -shared -fPIC -mavx2 -march=native -O3 Vi0.log.ll -o Vi0.so timing.c -fopenmp=libomp 
+ clang-8 -shared -fPIC -mavx2 -march=native -O3 Vi1.log.ll -o Vi1.so timing.c -fopenmp=libomp 
+ clang-8 -shared -fPIC -mavx2 -march=native -O3 Vi2.log.ll -o Vi2.so timing.c -fopenmp=libomp 
+ clang-8 -shared -fPIC -mavx2 -march=native -O3 Vi3.log.ll -o Vi3.so timing.c -fopenmp=libomp 
+ clang-8 -shared -fPIC -mavx2 -march=native -O3 Vi4.log.ll -o Vi4.so timing.c -fopenmp=libomp 
+ clang-8 -shared -fPIC -mavx2 -march=native -O3 Vi5.log.ll -o Vi5.so timing.c -fopenmp=libomp 

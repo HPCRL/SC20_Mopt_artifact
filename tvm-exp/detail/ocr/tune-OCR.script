@@ -1,0 +1,16 @@
+#!/bin/sh
+
+
+# load appropriate modules
+#N, H, W, CO, CI, KH, KW, strides, padding trails logname
+printf "\n==== Start Execution 1 =====" 
+#time python3 tune_conv2d_x86.py 1 48 480 16 1 3 3 1 1 1000 OCR1.log 2>&1 | tee OCR1.txt
+printf "\n==== Start Execution 2 =====" 
+time python3 tune_conv2d_x86.py 1 24 240 32 16 3 3 1 1 1000 OCR2.log 2>&1 | tee OCR2.txt
+printf "\n==== Start Execution 3 =====" 
+time python3 tune_conv2d_x86.py 1 12 120 64 32 3 3 1 1 1000 OCR3.log 2>&1 | tee OCR3.txt
+printf "\n==== Start Execution 4 =====" 
+time python3 tune_conv2d_x86.py 1 6 60 128 64 3 3 1 1 1000 OCR4.log 2>&1 | tee OCR4.txt
+
+
+printf "\n==== Done  =====" 

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+#N, H, W, CO, CI, KH, KW, strides, padding trails logname
+printf "\n==== Start Execution 0 =====" 
+time python3 tune_conv2d_x86_timing.py 1 224 224 64 3 3 3 1 1 1000 Vi0.log Vi0.so 2>&1 | tee Vi0.txt
+printf "\n==== Start Execution 1 =====" 
+time python3 tune_conv2d_x86_timing.py 1 112 112 128 64 3 3 1 1 1000 Vi1.log Vi1.so 2>&1 | tee Vi1.txt
+printf "\n==== Start Execution 2 =====" 
+time python3 tune_conv2d_x86_timing.py 1 56 56 256 128 3 3 1 1 1000 Vi2.log Vi2.so 2>&1 | tee Vi2.txt
+printf "\n==== Start Execution 3 =====" 
+time python3 tune_conv2d_x86_timing.py 1 28 28 512 256 3 3 1 1 1000 Vi3.log Vi3.so 2>&1 | tee Vi3.txt
+printf "\n==== Start Execution 4 =====" 
+time python3 tune_conv2d_x86_timing.py 1 14 14 512 512 3 3 1 1 1000 Vi4.log Vi4.so 2>&1 | tee Vi4.txt
+printf "\n==== Start Execution 5 =====" 
+time python3 tune_conv2d_x86_timing.py 1 7 7 512 512 3 3 1 1 1000 Vi5.log Vi5.so 2>&1 | tee Vi5.txt
+
+# printf "\n==== Start Execution 6 =====" 
+# time python3 tune_conv2d_x86_timing.py 1 28 28 32 192 5 5 1 2 1000 Vi6.log Vi6.so
+# printf "\n==== Start Execution 7 =====" 
+# time python3 tune_conv2d_x86_timing.py 1 28 28 64 192 1 1 1 0 1000 Vi7.log Vi7.so
+# printf "\n==== Start Execution 8 =====" 
+# time python3 tune_conv2d_x86_timing.py 1 14 14 48 512 5 5 1 2 1000 Vi8.log Vi8.so
+# printf "\n==== Start Execution 9 =====" 
+# time python3 tune_conv2d_x86_timing.py 1 14 14 192 512 1 1 1 0 1000 Vi9.log Vi9.so
+# printf "\n==== Start Execution 10 =====" 
+# time python3 tune_conv2d_x86_timing.py 1 7 7 256 832 1 1 1 1 1000 Vi10.log Vi10.so
+# printf "\n==== Start Execution 11 =====" 
+# time python3 tune_conv2d_x86_timing.py 1 7 7 128 832 5 5 1 2 1000 Vi11.log Vi11.so
+
+printf "\n==== Done  =====" 
