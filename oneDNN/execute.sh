@@ -1,6 +1,7 @@
 #!/bin/bash
+ONEDNNPATH= #your oneDNN install path
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ONEDNNPATH}/lib
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/lirui/oneDNN/install/lib
 #int nb, int nw, int ns, int nx, int ny, int nf, int nc
 ./a.out 1 3 3 224 224 64 3 | tee v0.txt
 ./a.out 1 3 3 112 112 128 64 | tee v1.txt 
