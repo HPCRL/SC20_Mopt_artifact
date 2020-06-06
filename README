@@ -7,7 +7,8 @@ icpc -Ofast -O3 -axAVX,CORE-AVX2 -mavx2 -qopenmp -march=native --std=c++11 TEST_
 run:
 ./a.out
 
-
+i7 is specific to i7-9700k
+xeon is specific to E5-2680v4
 
 -------------------------------------------------------------------------
 Run Intel oneDNN tests
