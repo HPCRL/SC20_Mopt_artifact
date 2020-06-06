@@ -1,7 +1,7 @@
 Run Mopt tests
 
 
-select one of the folder under Mopt/, for example: Mopt/i7_yolo/
+select one of the folder under Mopt_tests/, for example: Mopt_tests/i7_yolo/
 compile:
 icpc -Ofast -O3 -axAVX,CORE-AVX2 -mavx2 -qopenmp -march=native --std=c++11 TEST_TO_RUN.cc
 run:
